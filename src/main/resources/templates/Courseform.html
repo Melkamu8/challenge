@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#"
+      th:action="@{/process}"
+      th:object="$(course}"
+      method="post">
+    <input type="hidden" th:field="*{id}" />
+    Content :<input type="text" th:field=*{content}" />
+    <span th:if="${#fields.hasErrors('content'))"
+          th:errors="*{content}"></span><br />
+	Posteddate :<input type="text" th:field="*{Posteddate)" />
+    <span th:if="${#fields.hasErrors('Posteddate')}"
+          th:errors="*{Posteddate}"></span><br />
+    Sentby :<textarea rows="3" th:field="*{Sentby}" />
+    <span th:if="${#fields.hasErrors('Sentby')}"
+          th:errors="*{Sentby}"></span><br />
+    Credits :<input type="text" th:field="*{credit}" />
+    <span th:if="${#fields.hasErrors('credit')}"
+          th:errors="*{credit}"></span><br />
+ <br />
+    <input type="submit" value="Submit" />
+</form>
+</body>
+</html>
